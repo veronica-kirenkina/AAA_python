@@ -2,12 +2,12 @@ import csv
 from collections import defaultdict
 
 
-def open_csv_file(input_path: str) -> list:
+def open_csv_file(input_path: str) -> list|str:
     """
     The function reads a csv file and saves it in the form of a list consisting of lists
     :param input_path: The path to csv file we are getting information from
     :type: str
-    :return: list
+    :return: list or str
     """
     try:
         with open(input_path, encoding='utf-8', newline='') as csvfile:
@@ -50,12 +50,9 @@ def total_report(data: list) -> list:
         salary[lst[1]].append(int(lst[-1]))
     report = []
     for key, value in salary.items():
-        line = []
-        line.append(key)
-        line.append(len(value))
-        line.append(min(value))
-        line.append(max(value))
-        line.append(sum(value) // len(value))
+        line = [
+            key, len(value), min(value), max(value), (sum(value) // len(value))
+        ]
         report.append(line)
     return report
 
@@ -143,3 +140,4 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
