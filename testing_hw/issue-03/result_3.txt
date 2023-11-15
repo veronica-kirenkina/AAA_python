@@ -1,0 +1,12 @@
+PS D:\python>  python -m unittest -v morse.TestOneHotEncoder                  
+test_empty (morse.TestOneHotEncoder) ... ok
+test_none (morse.TestOneHotEncoder) ... ok
+test_num (morse.TestOneHotEncoder) ... ok
+test_nums (morse.TestOneHotEncoder) ... ok
+test_string (morse.TestOneHotEncoder) ... ok
+test_symbols (morse.TestOneHotEncoder) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.004s
+
+OK
