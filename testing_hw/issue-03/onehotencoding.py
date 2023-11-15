@@ -31,29 +31,35 @@ def fit_transform(*args: str) -> List[Tuple[str, List[int]]]:
 
 class TestOneHotEncoder(unittest.TestCase):
     def test_symbols(self):
+        """test transformation from list of strings"""
         actual = ['.', ',', '.']
         expected = [('.', [0, 1]), (',', [1, 0]), ('.', [0, 1])]
         self.assertEqual(fit_transform(actual), expected)
 
     def test_string(self):
+        """test transformation from string out of list"""
         actual = '^'
         expected = [('^', [1])]
         self.assertEqual(fit_transform(actual), expected)
 
     def test_nums(self):
+        """test transformation from list of digits"""
         actual = [3]
         expected = [(3, [1])]
         self.assertEqual(fit_transform(actual), expected)
 
     def test_num(self):
+        """test transformation from digit out of list"""
         actual = 3
         self.assertRaises(TypeError, fit_transform, actual)
 
     def test_none(self):
+        """test transformation from none object"""
         actual = None
         self.assertIsNone(actual)
 
     def test_empty(self):
+        """test transformation from empty list"""
         actual = []
         expected = []
         self.assertTrue(fit_transform(actual) == expected)
