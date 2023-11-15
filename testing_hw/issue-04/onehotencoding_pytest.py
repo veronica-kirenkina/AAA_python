@@ -30,22 +30,27 @@ def fit_transform(*args: str) -> List[Tuple[str, List[int]]]:
 
 
 def test_int_raises_type_error():
+    """test transformation from digit"""
     with pytest.raises(TypeError):
         fit_transform(3)
 
 
 def test_none_raises_type_error():
+    """test transformation from none object"""
     with pytest.raises(TypeError):
         fit_transform(None)
 
 
 def test_string():
+    """test transformation from string"""
     assert fit_transform('^') == [('^', [1])]
 
 
 def test_empty_list():
+    """test transformation from empty list"""
     assert fit_transform([]) == []
 
 
 def test_empty_list():
+    """test transformation from list of strings"""
     assert fit_transform(['.', ',', '.']) == [('.', [0, 1]), (',', [1, 0]), ('.', [0, 1])]
