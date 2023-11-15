@@ -79,13 +79,18 @@ if __name__ == '__main__':
         'Crock Pot Pasta Never boil pasta again',
         'Pasta Pomodoro Fresh ingredients Parmesan to taste'
     ]
+    vectorizer = CountVectorizer()
+    count_matrix = vectorizer.fit_transform(corpus)
+    print(vectorizer.get_feature_names())
+    print(count_matrix)
+
     transformer = TfidfTransformer()
     tfidf_matrix = transformer.fit_transform(count_matrix)
     print(transformer.tf_transform(count_matrix))
     print(transformer.idf_transform(count_matrix))
     print(tfidf_matrix)
 
-    vectorizer = TfidfVectorizer()
-    tfidf_matrix = vectorizer.fit_transform(corpus)
-    print(vectorizer.get_feature_names())
+    tf_vectorizer = TfidfVectorizer()
+    tfidf_matrix = tf_vectorizer.fit_transform(corpus)
+    print(tf_vectorizer.get_feature_names())
     print(tfidf_matrix)
